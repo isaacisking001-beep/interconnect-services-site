@@ -1,0 +1,782 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Interconnect Services LLC | B2B Telephone Sales &amp; Call Center Solutions</title>
+<meta name="description" content="Interconnect Services LLC powers B2B direct marketing by telephone — sales support for sales teams, call center phone services, and custom-built call systems for any sector." />
+<link rel="icon" href="assets/logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#060B1A;
+    --bg-soft:#0A1330;
+    --panel:#0D1638;
+    --panel-border:#1B2750;
+    --blue:#2F6BFF;
+    --blue-light:#5B8CFF;
+    --cyan:#22D3EE;
+    --green:#39FF8C;
+    --green-dim:#1FAE63;
+    --white:#F4F7FF;
+    --muted:#93A0C4;
+    --muted-dim:#5D6A94;
+    --radius:18px;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Space Grotesk','Inter',sans-serif;
+    letter-spacing:-0.02em;
+    margin:0;
+  }
+  p{margin:0;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--green);color:#04140A;}
+
+  /* ---------- background ambience ---------- */
+  .bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+  .blob{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;}
+  .blob.b1{width:520px;height:520px;background:radial-gradient(circle,var(--blue) 0%,transparent 70%);top:-160px;left:-120px;animation:float1 22s ease-in-out infinite;}
+  .blob.b2{width:460px;height:460px;background:radial-gradient(circle,var(--cyan) 0%,transparent 70%);top:30%;right:-160px;animation:float2 26s ease-in-out infinite;}
+  .blob.b3{width:420px;height:420px;background:radial-gradient(circle,var(--green) 0%,transparent 70%);bottom:-140px;left:20%;animation:float3 30s ease-in-out infinite;opacity:.18;}
+  @keyframes float1{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(60px,50px) scale(1.08);}}
+  @keyframes float2{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(-50px,40px) scale(1.1);}}
+  @keyframes float3{0%,100%{transform:translate(0,0) scale(1);}50%{transform:translate(40px,-30px) scale(1.05);}}
+  .grid-overlay{position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+    background-size:64px 64px;mask-image:radial-gradient(ellipse at 50% 0%,black 0%,transparent 70%);}
+
+  section{position:relative;z-index:1;}
+
+  /* ---------- nav ---------- */
+  .topbar{background:rgba(6,11,26,.7);border-bottom:1px solid var(--panel-border);}
+  .topbar .wrap{display:flex;justify-content:flex-end;gap:22px;padding:8px 24px;font-size:12.5px;color:var(--muted);}
+  .topbar a{display:flex;align-items:center;gap:6px;transition:color .2s;}
+  .topbar a:hover{color:var(--green);}
+  .topbar svg{width:14px;height:14px;}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);background:rgba(6,11,26,.72);border-bottom:1px solid var(--panel-border);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;}
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{width:42px;height:42px;border-radius:11px;box-shadow:0 0 0 1px rgba(255,255,255,.08), 0 6px 18px rgba(47,107,255,.35);}
+  .brand .name{font-family:'Space Grotesk';font-weight:700;font-size:16.5px;line-height:1.15;}
+  .brand .name span{display:block;font-family:'Inter';font-weight:500;font-size:10.5px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase;}
+  .brand .name b{color:var(--green);}
+
+  .nav-links{display:flex;gap:32px;align-items:center;}
+  .nav-links a{font-size:14.5px;color:var(--muted);font-weight:500;transition:color .2s;position:relative;}
+  .nav-links a:hover{color:var(--white);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:12px 22px;border-radius:100px;font-weight:600;font-size:14.5px;
+    cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s,background .25s,border-color .25s;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--green) 0%,var(--cyan) 100%);color:#03130A;box-shadow:0 8px 24px -6px rgba(57,255,140,.45);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px -6px rgba(57,255,140,.6);}
+  .btn-ghost{background:rgba(255,255,255,.04);border-color:var(--panel-border);color:var(--white);}
+  .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:var(--blue-light);}
+  .btn-sm{padding:9px 16px;font-size:13.5px;}
+  .btn svg{width:16px;height:16px;}
+
+  .burger{display:none;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--panel-border);align-items:center;justify-content:center;cursor:pointer;}
+  .burger svg{width:18px;height:18px;}
+  .mobile-menu{display:none;flex-direction:column;gap:4px;padding:10px 24px 20px;border-bottom:1px solid var(--panel-border);background:rgba(6,11,26,.96);}
+  .mobile-menu a{padding:12px 6px;font-size:15px;color:var(--muted);border-bottom:1px solid rgba(255,255,255,.05);}
+  .mobile-menu.open{display:flex;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 40px;}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
+  .hero .wrap > div{min-width:0;}
+  .marquee-track{min-width:0;}
+  .badge{
+    display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;
+    background:rgba(57,255,140,.08);border:1px solid rgba(57,255,140,.28);color:var(--green);
+    font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  }
+  .badge span.dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(57,255,140,.6);animation:pulseDot 2s infinite;}
+  @keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(57,255,140,.55);}70%{box-shadow:0 0 0 9px rgba(57,255,140,0);}100%{box-shadow:0 0 0 0 rgba(57,255,140,0);}}
+
+  .hero h1{font-size:52px;line-height:1.06;font-weight:800;margin-top:22px;}
+  .hero h1 .grad{background:linear-gradient(100deg,var(--green) 10%,var(--cyan) 60%,var(--blue-light) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero p.lead{margin-top:22px;font-size:17.5px;line-height:1.65;color:var(--muted);max-width:520px;}
+  .hero .cta-row{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap;}
+  .hero .trust{margin-top:46px;}
+  .hero .trust .label{font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted-dim);margin-bottom:14px;}
+
+  .marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);mask-image:linear-gradient(90deg,transparent,black 8%,black 92%,transparent);}
+  .marquee-track{display:flex;gap:14px;width:max-content;animation:scrollX 26s linear infinite;}
+  @keyframes scrollX{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .pill{flex:none;padding:9px 18px;border:1px solid var(--panel-border);background:rgba(255,255,255,.03);border-radius:100px;font-size:13.5px;color:var(--muted);display:flex;align-items:center;gap:8px;}
+  .pill svg{width:14px;height:14px;color:var(--blue-light);}
+
+  /* hero visual */
+  .hero-visual{position:relative;height:460px;}
+  .visual-card{
+    position:absolute;inset:0;border-radius:28px;border:1px solid var(--panel-border);
+    background:radial-gradient(120% 120% at 30% 20%,rgba(47,107,255,.22),transparent 60%),linear-gradient(160deg,#0B1636,#070C1E 70%);
+    overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+  }
+  .visual-card svg{width:100%;height:100%;}
+  .float-chip{position:absolute;padding:10px 14px;border-radius:14px;background:rgba(9,14,32,.85);border:1px solid var(--panel-border);backdrop-filter:blur(6px);display:flex;align-items:center;gap:10px;font-size:12.5px;font-weight:600;box-shadow:0 12px 26px -10px rgba(0,0,0,.55);animation:chipFloat 5s ease-in-out infinite;}
+  .float-chip svg{width:16px;height:16px;color:var(--green);}
+  .float-chip.c1{top:34px;right:24px;animation-delay:.2s;}
+  .float-chip.c2{bottom:40px;left:24px;animation-delay:1.4s;}
+  @keyframes chipFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+
+  /* ---------- section headers ---------- */
+  .eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);}
+  .sec-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .sec-head h2{font-size:36px;font-weight:800;margin-top:14px;line-height:1.2;}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:16px;line-height:1.6;}
+  section.pad{padding:110px 0;}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--panel-border),transparent);}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  /* ---------- services ---------- */
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .card{
+    background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01));
+    border:1px solid var(--panel-border);border-radius:var(--radius);padding:32px 28px;
+    transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s;
+    position:relative;overflow:hidden;
+  }
+  .card:hover{transform:translateY(-6px);border-color:rgba(57,255,140,.35);box-shadow:0 20px 46px -20px rgba(47,107,255,.35);}
+  .card .icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(47,107,255,.22),rgba(34,211,238,.14));border:1px solid rgba(91,140,255,.3);margin-bottom:22px;}
+  .card .icon svg{width:26px;height:26px;color:var(--blue-light);}
+  .card h3{font-size:19px;font-weight:700;margin-bottom:10px;}
+  .card p{color:var(--muted);font-size:14.5px;line-height:1.65;}
+
+  /* ---------- how it works ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .steps::before{content:"";position:absolute;top:27px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--green),var(--cyan),var(--blue));opacity:.35;}
+  .step{position:relative;text-align:center;padding:0 14px;}
+  .step .num{
+    width:56px;height:56px;border-radius:50%;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;
+    background:var(--bg);border:2px solid var(--green);color:var(--green);font-family:'Space Grotesk';font-weight:700;font-size:18px;position:relative;z-index:2;
+    box-shadow:0 0 0 6px var(--bg);
+  }
+  .step h3{font-size:16.5px;font-weight:700;margin-bottom:10px;}
+  .step p{font-size:13.8px;color:var(--muted);line-height:1.6;}
+
+  /* ---------- industries ---------- */
+  .industries{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
+  .ind-card{
+    padding:26px 20px;border-radius:16px;border:1px solid var(--panel-border);background:rgba(255,255,255,.02);
+    display:flex;flex-direction:column;gap:14px;transition:transform .3s,border-color .3s,background .3s;
+  }
+  .ind-card:hover{transform:translateY(-4px);border-color:rgba(34,211,238,.35);background:rgba(255,255,255,.04);}
+  .ind-card svg{width:26px;height:26px;color:var(--cyan);}
+  .ind-card h4{font-size:14.5px;font-weight:700;}
+  .ind-card p{font-size:12.5px;color:var(--muted-dim);line-height:1.5;}
+  .ind-card.highlight{background:linear-gradient(135deg,rgba(57,255,140,.1),rgba(34,211,238,.06));border-color:rgba(57,255,140,.35);}
+  .ind-card.highlight svg{color:var(--green);}
+
+  /* ---------- why us ---------- */
+  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;}
+  .why-tile{padding:28px 22px;border-radius:16px;border:1px solid var(--panel-border);background:rgba(255,255,255,.02);}
+  .why-tile svg{width:24px;height:24px;color:var(--green);margin-bottom:16px;}
+  .why-tile h4{font-size:15.5px;font-weight:700;margin-bottom:8px;}
+  .why-tile p{font-size:13.5px;color:var(--muted);line-height:1.6;}
+
+  /* ---------- about / leadership ---------- */
+  .about-panel{
+    display:grid;grid-template-columns:.62fr 1fr;gap:48px;align-items:center;
+    border:1px solid var(--panel-border);border-radius:28px;padding:40px;
+    background:radial-gradient(120% 140% at 0% 0%,rgba(34,211,238,.1),transparent 55%),linear-gradient(160deg,#0B1636,#070C1E 75%);
+  }
+  .about-photo{
+    position:relative;border-radius:20px;overflow:hidden;aspect-ratio:4/5;
+    border:1px solid var(--panel-border);
+    box-shadow:0 24px 60px -24px rgba(47,107,255,.5);
+  }
+  .about-photo::after{
+    content:"";position:absolute;inset:0;border-radius:20px;
+    background:linear-gradient(160deg,transparent 55%,rgba(6,11,26,.85) 100%);
+  }
+  .about-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;}
+  .about-copy h3{font-size:28px;font-weight:800;margin-top:10px;}
+  .about-copy .role{font-size:13.5px;font-weight:600;color:var(--cyan);margin-top:6px;margin-bottom:18px;letter-spacing:.02em;}
+  .about-copy p{color:var(--muted);font-size:15px;line-height:1.75;margin-top:14px;}
+  .about-copy p:first-of-type{margin-top:0;}
+
+  /* ---------- CTA / contact ---------- */
+  .cta-panel{
+    border-radius:28px;border:1px solid var(--panel-border);
+    background:radial-gradient(120% 160% at 20% 0%,rgba(47,107,255,.28),transparent 55%),linear-gradient(160deg,#0C1533,#070C1E 75%);
+    padding:56px;display:grid;grid-template-columns:1fr 1fr;gap:48px;overflow:hidden;position:relative;
+  }
+  .cta-panel::after{content:"";position:absolute;width:360px;height:360px;background:radial-gradient(circle,rgba(57,255,140,.16),transparent 70%);top:-120px;right:-100px;border-radius:50%;}
+  .cta-panel h2{font-size:30px;font-weight:800;line-height:1.2;}
+  .cta-panel p.lead{color:var(--muted);margin-top:16px;font-size:15.5px;line-height:1.65;}
+  .contact-list{margin-top:26px;display:flex;flex-direction:column;gap:14px;}
+  .contact-list a{display:flex;align-items:center;gap:12px;font-size:14.5px;font-weight:600;}
+  .contact-list .ic{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.05);border:1px solid var(--panel-border);display:flex;align-items:center;justify-content:center;flex:none;}
+  .contact-list svg{width:17px;height:17px;color:var(--green);}
+
+  form.lead-form{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1;}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .field label{display:block;font-size:12.5px;color:var(--muted-dim);margin-bottom:7px;font-weight:600;letter-spacing:.02em;}
+  .field input, .field select, .field textarea{
+    width:100%;padding:12px 14px;border-radius:11px;border:1px solid var(--panel-border);
+    background:rgba(255,255,255,.03);color:var(--white);font-family:inherit;font-size:14px;outline:none;
+    transition:border-color .2s,background .2s;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--green);background:rgba(255,255,255,.05);}
+  .field textarea{resize:vertical;min-height:90px;}
+  form.lead-form .btn{margin-top:6px;width:100%;padding:14px;font-size:15px;}
+  .form-note{font-size:12px;color:var(--muted-dim);margin-top:2px;}
+
+  /* ---------- footer ---------- */
+  footer{padding:60px 0 34px;border-top:1px solid var(--panel-border);}
+  .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px;}
+  .foot-brand .brand{margin-bottom:14px;}
+  .foot-brand p{color:var(--muted);font-size:13.5px;line-height:1.7;max-width:280px;}
+  .foot-col h5{font-size:12.5px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted-dim);margin-bottom:16px;}
+  .foot-col a{display:block;color:var(--muted);font-size:14px;margin-bottom:11px;transition:color .2s;}
+  .foot-col a:hover{color:var(--green);}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid var(--panel-border);font-size:12.5px;color:var(--muted-dim);flex-wrap:wrap;gap:12px;}
+  .foot-bottom .legal a{margin-left:20px;}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-visual{height:340px;order:-1;}
+    .hero h1{font-size:38px;}
+    .cards3,.steps,.industries,.why-grid{grid-template-columns:repeat(2,1fr);}
+    .steps::before{display:none;}
+    .cta-panel{grid-template-columns:1fr;padding:36px 24px;}
+    .foot-top{grid-template-columns:1fr 1fr;}
+    .nav-links{display:none;}
+    .burger{display:flex;}
+    .about-panel{grid-template-columns:.8fr 1fr;padding:32px;gap:32px;}
+  }
+  @media (max-width:600px){
+    .cards3,.industries,.why-grid,.steps,.form-row,.foot-top{grid-template-columns:1fr;}
+    .hero h1{font-size:31px;}
+    section.pad{padding:72px 0;}
+    .nav-cta .btn-ghost{display:none;}
+    .nav-cta .btn-primary{display:none;}
+    .cta-panel{padding:28px 18px;}
+    .about-panel{grid-template-columns:1fr;padding:24px;}
+    .about-photo{max-width:260px;margin:0 auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="bg-fx">
+  <div class="grid-overlay"></div>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="blob b3"></div>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <a href="tel:+18662036519">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      +1 866-203-6519
+    </a>
+    <a href="https://wa.me/17143005307" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.44 1.34 4.93L2 22l5.24-1.37a9.9 9.9 0 0 0 4.8 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2zm0 18.1a8.1 8.1 0 0 1-4.14-1.13l-.3-.18-3.1.81.83-3.02-.2-.31a8.14 8.14 0 1 1 6.91 3.83zm4.47-6.1c-.24-.12-1.44-.71-1.67-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.42-1.33-1.66-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42-.14 0-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.85.83-.85 2.02 0 1.19.87 2.34.99 2.5.12.16 1.71 2.61 4.14 3.66.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.44-.59 1.64-1.16.2-.57.2-1.06.14-1.16-.06-.1-.22-.16-.46-.28z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="Interconnect Services LLC logo" />
+      <div class="name">INTERCONNECT<br><span>Services LLC</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#industries">Industries</a>
+      <a href="#why-us">Why Us</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <a href="tel:+18662036519" class="btn btn-ghost btn-sm">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call Us
+      </a>
+      <a href="#contact" class="btn btn-primary btn-sm">Get a Free Consultation</a>
+      <div class="burger" id="burger">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#industries">Industries</a>
+    <a href="#why-us">Why Us</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-primary" style="justify-content:center;margin-top:14px;border-bottom:none;color:#03130A;">Get a Free Consultation</a>
+  </div>
+</nav>
+
+<div id="top"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="badge"><span class="dot"></span> B2B TELEPHONE SALES &amp; CALL CENTER SOLUTIONS</div>
+      <h1>More Lines.<br>More Calls.<br><span class="grad">More Deals Closed.</span></h1>
+      <p class="lead">Interconnect Services LLC builds and powers the phone infrastructure behind B2B sales teams and call centers — sales support, call center phone services, and fully custom systems, for every sector.</p>
+      <div class="cta-row">
+        <a href="#contact" class="btn btn-primary">
+          Get a Free Consultation
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a href="tel:+18662036519" class="btn btn-ghost">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +1 866-203-6519
+        </a>
+      </div>
+      <div class="trust">
+        <div class="label">Trusted across sectors</div>
+        <div class="marquee">
+          <div class="marquee-track" id="marqueeTrack">
+            <!-- filled by JS (duplicated for seamless loop) -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="visual-card">
+        <svg viewBox="0 0 480 460" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#39FF8C"/>
+              <stop offset="100%" stop-color="#22D3EE"/>
+            </linearGradient>
+            <radialGradient id="nodeGlow" r="70%">
+              <stop offset="0%" stop-color="#39FF8C" stop-opacity=".9"/>
+              <stop offset="100%" stop-color="#39FF8C" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+
+          <!-- connectivity arc (echoes the brand mark) -->
+          <g id="arcGroup" stroke="url(#lineGrad)" stroke-width="2" fill="none" opacity=".85">
+            <path d="M110,230 A130,130 0 0 1 370,230" stroke-dasharray="6 8"/>
+          </g>
+          <g id="nodes"></g>
+
+          <!-- travelling signal packets -->
+          <circle r="4" fill="#39FF8C">
+            <animateMotion dur="3.2s" repeatCount="indefinite" path="M110,230 A130,130 0 0 1 370,230"/>
+          </circle>
+          <circle r="3.2" fill="#22D3EE">
+            <animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite" path="M110,230 A130,130 0 0 1 370,230"/>
+          </circle>
+
+          <!-- headset silhouette -->
+          <g transform="translate(240,255)" stroke="#C9D3EF" stroke-width="6" fill="none" stroke-linecap="round">
+            <path d="M-95,-10 A95,95 0 0 1 95,-10" opacity=".55"/>
+            <rect x="-112" y="-14" width="24" height="58" rx="12" fill="#0E1730" stroke="#3B4A78" stroke-width="3"/>
+            <rect x="88" y="-14" width="24" height="58" rx="12" fill="#0E1730" stroke="#3B4A78" stroke-width="3"/>
+            <path d="M100,44 Q108,86 70,92" stroke="#3B4A78" stroke-width="4" opacity=".8"/>
+            <circle cx="66" cy="93" r="9" fill="#0E1730" stroke="#3B4A78" stroke-width="3"/>
+          </g>
+
+          <!-- soft pulse rings around headset center -->
+          <circle cx="240" cy="255" r="46" fill="none" stroke="#2F6BFF" stroke-width="1.4" opacity=".35">
+            <animate attributeName="r" values="40;92;40" dur="4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values=".45;0;.45" dur="4s" repeatCount="indefinite"/>
+          </circle>
+        </svg>
+      </div>
+      <div class="float-chip c1">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+        Multi-line ready
+      </div>
+      <div class="float-chip c2">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>
+        Built for every sector
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider wrap" style="max-width:1180px;"></div>
+
+<!-- SERVICES -->
+<section class="pad" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">What We Do</div>
+      <h2>Built for Teams That Live on the Phone</h2>
+      <p>Whether you run a sales floor or a full call center, we provide the people, the lines, and the systems to keep every call working for your business.</p>
+    </div>
+    <div class="cards3">
+      <div class="card reveal">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Sales Support for Sales Teams</h3>
+        <p>Extend your team's capacity with dedicated phone support that plugs into your process — lead follow-up, appointment setting, and closing support that feels like your own team.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.08s;">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <h3>Call Center Phone Services</h3>
+        <p>Reliable, scalable phone infrastructure built specifically for call center operations — multi-line, high-volume, and always on, whatever your outbound or inbound mix looks like.</p>
+      </div>
+      <div class="card reveal" style="transition-delay:.16s;">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </div>
+        <h3>Custom Call Systems</h3>
+        <p>Every call center is different. We design and configure systems around your exact call flow, sector requirements, and compliance needs — not a one-size-fits-all package.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="pad" id="how-it-works" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2>From First Call to Full-Scale Operation</h2>
+      <p>A straightforward path to get more lines working for your business — no long onboarding, no guesswork.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num">1</div>
+        <h3>Discovery Call</h3>
+        <p>We learn your sales process, call volume, and sector requirements.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.08s;">
+        <div class="num">2</div>
+        <h3>Custom Build</h3>
+        <p>We configure lines, scripts, and systems around exactly how you sell.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.16s;">
+        <div class="num">3</div>
+        <h3>Go Live</h3>
+        <p>Your team — or ours — starts making calls on infrastructure built to scale.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:.24s;">
+        <div class="num">4</div>
+        <h3>Ongoing Support</h3>
+        <p>We monitor, adjust, and add lines as your call volume grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="pad" id="industries">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Who We Work With</div>
+      <h2>Built for Every Sector</h2>
+      <p>From government agencies to dealership floors, we adapt our systems to how your industry actually operates.</p>
+    </div>
+    <div class="industries">
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1m4 0h1m-6 4h1m4 0h1m-6 4h1m4 0h1"/></svg>
+        <h4>Government</h4>
+        <p>Secure, compliant lines for public-sector outreach.</p>
+      </div>
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        <h4>Aerospace</h4>
+        <p>High-reliability systems for mission-driven teams.</p>
+      </div>
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+        <h4>Insurance</h4>
+        <p>Volume-ready lines for policy sales and follow-up.</p>
+      </div>
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7z"/></svg>
+        <h4>Hospitals</h4>
+        <p>Patient outreach and scheduling lines that stay reliable.</p>
+      </div>
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V10l7-6 7 6v11M9 21v-6h6v6"/></svg>
+        <h4>Hospitality</h4>
+        <p>Reservation and guest-relations calling at scale.</p>
+      </div>
+      <div class="ind-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 13l2-7h14l2 7M5 13h14v5H5z"/><circle cx="7.5" cy="18.5" r="1.5"/><circle cx="16.5" cy="18.5" r="1.5"/></svg>
+        <h4>Dealerships</h4>
+        <p>Lead follow-up and appointment lines built for volume.</p>
+      </div>
+      <div class="ind-card highlight reveal" style="grid-column: span 2;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <h4>Need More Than One Line?</h4>
+        <p>If your business runs on multiple lines — whatever the sector — we'll build a system around it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="pad" id="why-us" style="background:var(--bg-soft);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Why Interconnect</div>
+      <h2>Phone Infrastructure That Adapts to You</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-tile reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8L2 22M17.5 15H9"/></svg>
+        <h4>All-Sector Experience</h4>
+        <p>From government to hospitality, we adapt to your compliance and workflow needs.</p>
+      </div>
+      <div class="why-tile reveal" style="transition-delay:.08s;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <h4>Fully Custom Systems</h4>
+        <p>Nothing off-the-shelf — every system is built around how you actually sell.</p>
+      </div>
+      <div class="why-tile reveal" style="transition-delay:.16s;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 15l4-6 4 3 5-8"/></svg>
+        <h4>Built to Scale</h4>
+        <p>Add lines and capacity as your call volume grows, without ripping out what works.</p>
+      </div>
+      <div class="why-tile reveal" style="transition-delay:.24s;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+        <h4>One Point of Contact</h4>
+        <p>A dedicated relationship, not a ticket queue — always someone who knows your setup.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / LEADERSHIP -->
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow">About Us</div>
+      <h2>Built by People Who Understand the Call</h2>
+      <p>Interconnect Services LLC was founded on a simple idea: sales and support are still won or lost on the phone. We put the right lines, systems, and people behind every conversation — across every sector we serve.</p>
+    </div>
+
+    <div class="about-panel reveal">
+      <div class="about-photo">
+        <img src="assets/ceo.jpg" alt="Lisa Marino, CEO of Interconnect Services LLC" />
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow" style="color:var(--green);">Leadership</div>
+        <h3>Lisa Marino</h3>
+        <div class="role">CEO, Interconnect Services LLC</div>
+        <p>Lisa Marino, CEO of Interconnect Services LLC, is a strategic business leader recognized for her exceptional ability to connect people, ideas, and opportunities within the business services landscape. With a background in Administration, Business Development, and customer-focused solutions, she adopts a results-driven approach that emphasizes strong relationship building and service excellence in both home services and technology services.</p>
+        <p>Lisa's leadership is characterized by her commitment to collaboration, innovative problem-solving, and delivering value-driven outcomes for clients and partners alike.</p>
+      </div>
+    </div>
+
+    <div class="about-panel reveal" style="margin-top:32px;">
+      <div class="about-photo">
+        <img src="assets/cfo.jpg" alt="Isaac King Ike, CFO of Interconnect Services LLC" />
+      </div>
+      <div class="about-copy">
+        <div class="eyebrow" style="color:var(--green);">Leadership</div>
+        <h3>Isaac King Ike</h3>
+        <div class="role">CFO, Interconnect Services LLC</div>
+        <p>Isaac King Ike oversees the financial strategy behind Interconnect Services LLC, bringing the same builder's discipline he's applied as founder of CardioGlyce Health Guard and King Ike Synergy Enterprise (KISE) to the company's books and growth planning.</p>
+        <p>His focus is on keeping operations lean and numbers disciplined as the company scales its call center and B2B sales lines into new sectors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / CTA -->
+<section class="pad" id="contact">
+  <div class="wrap">
+    <div class="cta-panel reveal">
+      <div>
+        <div class="eyebrow">Get Started</div>
+        <h2 style="margin-top:14px;">Ready to Put More Lines to Work?</h2>
+        <p class="lead">Tell us about your sales team or call center and we'll put together a plan built around your sector, call volume, and goals.</p>
+        <div class="contact-list">
+          <a href="tel:+18662036519">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            +1 866-203-6519
+          </a>
+          <a href="https://wa.me/17143005307" target="_blank" rel="noopener">
+            <span class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.44 1.34 4.93L2 22l5.24-1.37a9.9 9.9 0 0 0 4.8 1.22h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2z"/></svg></span>
+            Message us on WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <form class="lead-form" id="leadForm">
+        <div class="form-row">
+          <div class="field">
+            <label>Full Name</label>
+            <input type="text" name="name" required placeholder="Jane Doe" />
+          </div>
+          <div class="field">
+            <label>Company</label>
+            <input type="text" name="company" placeholder="Your company" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="field">
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="jane@company.com" />
+          </div>
+          <div class="field">
+            <label>Phone</label>
+            <input type="tel" name="phone" placeholder="(555) 555-5555" />
+          </div>
+        </div>
+        <div class="field">
+          <label>Sector</label>
+          <select name="sector">
+            <option>Government</option>
+            <option>Aerospace</option>
+            <option>Insurance</option>
+            <option>Hospitals / Healthcare</option>
+            <option>Hospitality</option>
+            <option>Dealerships</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>What do you need?</label>
+          <textarea name="message" placeholder="Tell us about your sales team, call volume, or the system you need built..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          Send Request
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </button>
+        <div class="form-note">We typically respond within one business day.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <img src="assets/logo.png" alt="Interconnect Services LLC logo" />
+          <div class="name">INTERCONNECT<br><span>Services LLC</span></div>
+        </a>
+        <p>Seamless global connectivity for B2B sales teams and call centers — sales support, phone services, and custom-built systems for every sector.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#industries">Industries</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#about">About</a>
+      </div>
+      <div class="foot-col">
+        <h5>Get In Touch</h5>
+        <a href="#contact">Request a Consultation</a>
+        <a href="tel:+18662036519">+1 866-203-6519</a>
+        <a href="https://wa.me/17143005307" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="foot-col">
+        <h5>Legal</h5>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="sms-terms.html">SMS Terms &amp; Conditions</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© <span id="year"></span> Interconnect Services LLC. All rights reserved.</div>
+      <div class="legal">
+        <a href="privacy-policy.html">Privacy</a>
+        <a href="terms-and-conditions.html">Terms</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // mobile menu
+  const burger = document.getElementById('burger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+
+  // marquee content
+  const industries = [
+    'Government','Aerospace','Insurance','Hospitals','Hospitality','Dealerships','Multi-Line Enterprises'
+  ];
+  const checkSvg = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg>';
+  const track = document.getElementById('marqueeTrack');
+  const seq = [...industries, ...industries]; // duplicate for seamless scroll
+  track.innerHTML = seq.map(i => `<div class="pill">${checkSvg}${i}</div>`).join('');
+
+  // animated node dots along the hero arc
+  (function drawNodes(){
+    const nodesGroup = document.getElementById('nodes');
+    const pathPoints = [
+      [110,230],[140,178],[185,146],[240,133],[295,146],[340,178],[370,230]
+    ];
+    pathPoints.forEach((p, idx) => {
+      const c = document.createElementNS('http://www.w3.org/2000/svg','circle');
+      c.setAttribute('cx', p[0]); c.setAttribute('cy', p[1]); c.setAttribute('r', idx % 2 === 0 ? 5 : 4);
+      c.setAttribute('fill', idx % 2 === 0 ? '#39FF8C' : '#22D3EE');
+      c.style.opacity = '0.9';
+      const anim = document.createElementNS('http://www.w3.org/2000/svg','animate');
+      anim.setAttribute('attributeName','opacity');
+      anim.setAttribute('values','0.4;1;0.4');
+      anim.setAttribute('dur', (2.4 + idx*0.15) + 's');
+      anim.setAttribute('repeatCount','indefinite');
+      c.appendChild(anim);
+      nodesGroup.appendChild(c);
+    });
+  })();
+
+  // lead form -> mailto fallback (replace with a real form endpoint once hosted)
+  document.getElementById('leadForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const f = new FormData(this);
+    const subject = encodeURIComponent('New consultation request — ' + (f.get('company') || f.get('name')));
+    const body = encodeURIComponent(
+      `Name: ${f.get('name')}\nCompany: ${f.get('company')}\nEmail: ${f.get('email')}\nPhone: ${f.get('phone')}\nSector: ${f.get('sector')}\n\nMessage:\n${f.get('message')}`
+    );
+    window.location.href = `mailto:info@interconnectservicesllc.com?subject=${subject}&body=${body}`;
+  });
+</script>
+
+</body>
+</html>
